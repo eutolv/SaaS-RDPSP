@@ -1,6 +1,6 @@
 /* ============================================================
    CORE VARIABLES
-   ============================================================ */
+============================================================ */
 :root {
   --primary: #000000;
   --secondary: #FFFFFF;
@@ -10,7 +10,7 @@
 
 /* ============================================================
    RESET / BASE
-   ============================================================ */
+============================================================ */
 * {
   margin: 0;
   padding: 0;
@@ -20,25 +20,22 @@
 
 body {
   background-color: var(--secondary);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
   padding: 20px;
+  margin: 0;
+  display: block;
+  overflow-x: hidden;
 }
 
 /* ============================================================
-   CONTAINER / CARD PRINCIPAL
-   ============================================================ */
+   CONTAINER
+============================================================ */
 .container {
   width: 100%;
-  max-width: 480px;
-  border: 2px solid var(--primary);
+  max-width: 1200px;
   padding: 40px 30px;
-  background-color: var(--secondary);
-  box-shadow: var(--shadow);
-  position: relative;
-  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
 }
 
 .container::before {
@@ -55,7 +52,7 @@ body {
 
 /* ============================================================
    TIPOGRAFIA
-   ============================================================ */
+============================================================ */
 h1 {
   color: var(--primary);
   margin-bottom: 20px;
@@ -82,180 +79,8 @@ p {
 }
 
 /* ============================================================
-   BOTÕES
-   ============================================================ */
-.btn-primary {
-  display: block;
-  width: 100%;
-  padding: 14px;
-  background-color: var(--accent);
-  color: var(--secondary);
-  text-align: center;
-  text-decoration: none;
-  border: 2px solid var(--primary);
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s;
-  border-radius: 6px;
-}
-
-.btn-primary:hover {
-  box-shadow: 4px 4px 0px var(--primary);
-  transform: translate(-2px, -2px);
-}
-
-/* ============================================================
-   FORMS — LABELS / INPUTS / SELECTS
-   ============================================================ */
-.form-group label {
-  font-weight: 700;
-  display: block;
-  margin-bottom: 8px;
-  color: var(--primary);
-}
-
-/* Inputs brutalistas */
-.input-brutal {
-  width: 100%;
-  padding: 14px;
-  border: 2px solid var(--primary);
-  border-radius: 6px;
-  background-color: var(--secondary);
-  font-size: 14px;
-  box-shadow: 4px 4px 0px var(--primary);
-  margin-bottom: 10px;
-}
-
-/* Select brutalista */
-.select-brutal {
-  width: 100%;
-  padding: 14px;
-  border: 2px solid var(--primary);
-  border-radius: 6px;
-  background-color: var(--secondary);
-  font-size: 14px;
-  box-shadow: 4px 4px 0px var(--primary);
-  margin-bottom: 25px;
-  cursor: pointer;
-}
-
-.select-brutal.disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-/* ============================================================
-   COMPONENTES BRUTALISTAS
-   ============================================================ */
-.brutal-box {
-  border: 2px solid var(--primary);
-  border-radius: 12px;
-  background: var(--secondary);
-  box-shadow: 6px 6px 0px var(--primary);
-  padding: 20px;
-  margin-bottom: 30px;
-}
-
-/* ============================================================
-   AUTOCOMPLETE DROPDOWN
-   ============================================================ */
-.autocomplete-items {
-  position: relative;
-}
-
-.autocomplete-items div {
-  padding: 10px;
-  cursor: pointer;
-  border-bottom: 1px solid var(--primary);
-  background-color: var(--secondary);
-}
-
-.autocomplete-items div:hover {
-  background-color: var(--accent);
-  color: var(--secondary);
-}
-
-/* ========================================= */
-/* Botão Neo-Brutalism  */
-/* ========================================= */
-.btn-brutal {
-  background: #ffeb3b;                /* cor vibrante estilo brutalista */
-  border: 3px solid #000;
-  padding: 14px 22px;
-
-  font-size: 1.1rem;
-  font-weight: 800;
-  text-transform: uppercase;
-
-  cursor: pointer;
-  display: inline-block;
-
-  box-shadow: 5px 5px 0px #000;        /* sombra dura deslocada */
-  transition: transform 0.08s linear, box-shadow 0.08s linear;
-
-  display: block;
-  margin: 20px auto;   /* CENTRALIZA + cria espaço acima e abaixo */
-  width: fit-content;  /* deixa só do tamanho do conteúdo */
-  margin: 28px auto;
-
-}
-
-.btn-brutal:hover:not(:disabled) {
-  transform: translate(-2px, -2px);
-  box-shadow: 7px 7px 0px #000;
-}
-
-.btn-brutal:active:not(:disabled) {
-  transform: translate(2px, 2px);
-  box-shadow: 3px 3px 0px #000;
-}
-
-.btn-brutal:disabled {
-  background: #d6d6d6;
-  border-color: #777;
-  color: #555;
-  box-shadow: none;
-  cursor: not-allowed;
-}
-
-.risk-group {
-  margin-top: 20px;
-}
-
-.interaction-card {
-  padding: 15px;
-  margin-bottom: 12px;
-  border-radius: 10px;
-}
-
-.risk-alto {
-  background: #ffdddd;
-  border-left: 6px solid #d00000;
-}
-
-.risk-moderado {
-  background: #fff4cc;
-  border-left: 6px solid #e0a200;
-}
-
-.risk-baixo {
-  background: #e6ffe6;
-  border-left: 6px solid #009400;
-}
-
-.recommendation {
-  margin-top: 10px;
-  font-size: 0.95rem;
-  opacity: 0.9;
-}
-
-.subtitle {
-  margin-bottom: 20px;
-  font-size: 1rem;
-  opacity: 0.8;
-}
-
+   GRID / LAYOUT
+============================================================ */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -263,61 +88,43 @@ p {
   margin-bottom: 30px;
 }
 
-.stat-card {
-  padding: 20px;
-  text-align: center;
-}
-
-.stat-number {
-  font-size: 2.4rem;
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-.stat-number.red {
-  color: #e63946;
-}
-
-.chart-box {
-  margin-top: 30px;
-  padding: 20px;
-}
-
-canvas {
-  width: 100% !important;
-  height: 350px !important;
-}
-
-/* Grid horizontal para os gráficos */
 .charts-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; 
+  grid-template-columns: 1fr 1fr;
   gap: 25px;
   margin-top: 30px;
 }
 
-/* Gráfico ocupando largura total */
 .chart-full {
   margin-top: 30px;
   padding: 20px;
 }
 
-.chart-box {
-  padding: 20px;
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 18px;
+  align-items: start;
+  width: 100%;
 }
 
-/* Ajuste da altura */
-canvas {
-  width: 100% !important;
-  height: 320px !important;
+.horizontal-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 20px;
+  scroll-behavior: smooth;
 }
 
-/* Responsividade – vira vertical no celular */
+/* RESPONSIVIDADE */
 @media (max-width: 900px) {
   .charts-grid {
     grid-template-columns: 1fr;
   }
-
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
   canvas {
     height: 260px !important;
   }
