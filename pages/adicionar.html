@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Adicionar Medicamentos | InterSafe RX</title>
+
+  <!-- Estilos globais -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- Título e subtítulo -->
+    <h1>Adicionar Medicamentos</h1>
+    <p>Informe os medicamentos em uso pelo paciente</p>
+
+    <!-- ============================= -->
+    <!-- Campo de busca de medicamento -->
+    <!-- ============================= -->
+    <div class="form-group">
+      <label for="searchMed">Buscar medicamento</label>
+
+      <input 
+        type="text" 
+        id="searchMed"
+        class="input-brutal"
+        placeholder="Digite o nome do medicamento..."
+        autocomplete="off"
+      >
+
+      <!-- Lista de sugestões do autocomplete -->
+      <div id="autocomplete-list" class="autocomplete-items brutal-box"></div>
+    </div>
+
+    <!-- ============================= -->
+    <!-- Seleção de dose (carregado dinamicamente) -->
+    <!-- ============================= -->
+    <div class="form-group">
+      <label for="dose">Dose</label>
+
+      <select 
+        id="dose" 
+        class="select-brutal disabled"
+        disabled
+      >
+        <option value="">Selecione um medicamento primeiro</option>
+      </select>
+    </div>
+
+    <!-- ============================= -->
+    <!-- Frequência -->
+    <!-- ============================= -->
+    <div class="form-group">
+      <label for="frequency">Frequência</label>
+
+      <select id="frequency" class="select-brutal">
+        <option value="1x/dia">1x ao dia</option>
+        <option value="2x/dia">2x ao dia</option>
+        <option value="3x/dia">3x ao dia</option>
+        <option value="4x/dia">4x ao dia</option>
+        <option value="SOS">SOS (se necessário)</option>
+        <option value="12/12h">12 em 12 horas</option>
+        <option value="8/8h">8 em 8 horas</option>
+      </select>
+    </div>
+
+    <!-- ============================= -->
+    <!-- Botão adicionar medicamento -->
+    <!-- ============================= -->
+    <button 
+      id="addMedBtn" 
+      class="btn-secondary" 
+      disabled
+    >
+      Adicionar à lista
+    </button>
+
+    <!-- ============================= -->
+    <!-- Lista de medicamentos adicionados -->
+    <!-- ============================= -->
+    <div id="medList" class="med-list brutal-box">
+      <p class="empty-state">Nenhum medicamento adicionado ainda</p>
+    </div>
+
+    <!-- ============================= -->
+    <!-- Botão analisar (só aparece quando há itens) -->
+    <!-- ============================= -->
+    <a 
+      href="resultado.html" 
+      id="analyzeBtn" 
+      class="btn-primary" 
+      style="display: none;"
+    >
+      Analisar Interações
+    </a>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="../assets/js/medicamentos.js"></script>
+
+</body>
+</html>

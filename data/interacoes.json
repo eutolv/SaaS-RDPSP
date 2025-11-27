@@ -1,0 +1,32 @@
+[
+  {
+    "med1": "Paracetamol",
+    "med2": "Ibuprofeno",
+    "descricao": "Risco de sobrecarga hepática se usado em excesso."
+  },
+  {
+    "med1": "Paracetamol",
+    "med2": "Amoxicilina",
+    "descricao": "Sem interações graves conhecidas."
+  },
+  {
+    "med1": "Paracetamol",
+    "med2": "Omeprazol",
+    "descricao": "Pode reduzir ligeiramente a absorção do Paracetamol."
+  },
+  {
+    "med1": "Ibuprofeno",
+    "med2": "Amoxicilina",
+    "descricao": "Sem interações significativas conhecidas."
+  },
+  {
+    "med1": "Ibuprofeno",
+    "med2": "Omeprazol",
+    "descricao": "Omeprazol pode proteger o estômago, reduzindo irritação gástrica do Ibuprofeno."
+  },
+  {
+    "med1": "Amoxicilina",
+    "med2": "Omeprazol",
+    "descricao": "Sem interações significativas conhecidas."
+  }
+]
