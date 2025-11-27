@@ -10,7 +10,7 @@ const medList = document.getElementById('medList');
 const analyzeBtn = document.getElementById('analyzeBtn');
 
 let medicamentos = [];
-let listaAdicionados = [];
+let listaAdicionados = JSON.parse(localStorage.getItem('listaMed')) || [];
 let selectedMed = null;
 
 // =============================================================
@@ -36,7 +36,9 @@ searchMed.addEventListener('input', () => {
     return;
   }
 
-  const filtrados = medicamentos.filter(m => m.nome.toLowerCase().includes(val));
+  const filtrados = medicamentos.filter(m => 
+    m.nome.toLowerCase().includes(val)
+  );
 
   filtrados.forEach(med => {
     const div = document.createElement('div');
@@ -69,7 +71,7 @@ function selectMedication(med) {
 }
 
 // =============================================================
-// Adicionar medicamento à lista
+// Adicionar medicamento à lista (versão FINAL e correta)
 // =============================================================
 addMedBtn.addEventListener('click', () => {
   if (!selectedMed || !doseSelect.value) return;
@@ -81,8 +83,12 @@ addMedBtn.addEventListener('click', () => {
   };
 
   listaAdicionados.push(medObj);
-  renderLista();
 
+  // SALVAR NO LOCALSTORAGE
+  localStorage.setItem('listaMed', JSON.stringify(listaAdicionados));
+
+  renderLista();
+  
   // Resetar campos
   searchMed.value = '';
   doseSelect.innerHTML = '<option value="">Selecione um medicamento primeiro</option>';
@@ -123,39 +129,20 @@ function renderLista() {
     // Remover medicamento
     div.querySelector('button').addEventListener('click', () => {
       listaAdicionados.splice(index, 1);
+
+      // Atualizar localStorage
+      localStorage.setItem('listaMed', JSON.stringify(listaAdicionados));
+
       renderLista();
     });
 
     medList.appendChild(div);
   });
 
-  analyzeBtn.style.display = listaAdicionados.length > 0 ? 'block' : 'none';
+  analyzeBtn.style.display = 'block';
 }
 
 // =============================================================
-// Adicionar medicamento à lista
+// Inicializar lista ao abrir página
 // =============================================================
-addMedBtn.addEventListener('click', () => {
-  if (!selectedMed || !doseSelect.value) return;
-
-  const medObj = {
-    nome: selectedMed.nome,
-    dose: doseSelect.value,
-    frequencia: frequencySelect.value
-  };
-
-  listaAdicionados.push(medObj);
-
-  // SALVAR NO LOCALSTORAGE
-  localStorage.setItem('listaMed', JSON.stringify(listaAdicionados));
-
-  renderLista();
-  
-  // Resetar campos
-  searchMed.value = '';
-  doseSelect.innerHTML = '<option value="">Selecione um medicamento primeiro</option>';
-  doseSelect.disabled = true;
-  doseSelect.classList.add('disabled');
-  addMedBtn.disabled = true;
-  selectedMed = null;
-});
+renderLista();

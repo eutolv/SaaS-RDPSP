@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Resumo para o Atendente | InterSafe RX</title>
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    /* Pequenos estilos locais para o layout do resumo */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 18px;
+      align-items: start;
+      margin-top: 18px;
+    }
+    .card { padding: 14px; border-radius: 10px; background: #fff; box-shadow: 0 2px 0 rgba(0,0,0,0.08); border: 3px solid #000; }
+    .quick-card { background: linear-gradient(180deg,#f7f7f7,#fff); }
+    .clinical-card { margin-bottom: 12px; }
+    .interaction-card { padding: 12px; margin-bottom: 10px; border-radius: 8px; }
+    .risk-alto { background:#ffefef; border-left:6px solid #d00000; }
+    .risk-moderado { background:#fff9ea; border-left:6px solid #e0a200; }
+    .risk-baixo { background:#edfef0; border-left:6px solid #009400; }
+    .actions { margin-top: 18px; display:flex; gap:10px; }
+    .med-item { margin-bottom:8px; padding-bottom:6px; border-bottom:1px dashed #e6e6e6; }
+    .med-info { font-size:0.9rem; opacity:0.85; margin-top:6px; }
+    ul#medListResumo { list-style: none; padding-left: 0; margin:0; }
+    ul#medListResumo li { margin-bottom: 10px; }
+    @media(max-width:900px){
+      .summary-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Resumo para o Atendente</h1>
+    <p class="subtitle">Orientações rápidas para atendimento seguro</p>
+
+    <!-- GRID: esquerda = resumo rápido + meds; direita = clínico + interações -->
+    <div class="summary-grid">
+
+      <!-- COLUNA ESQUERDA -->
+      <div>
+        <!-- Resumo rápido -->
+        <div id="quickSummary"></div>
+
+        <!-- Resumo dos medicamentos -->
+        <div class="brutal-box card" style="margin-top:12px;">
+          <h2>Regime Medicamentoso</h2>
+          <ul id="medListResumo"></ul>
+        </div>
+
+        <!-- Quando encaminhar -->
+        <div id="whenRefer" style="margin-top:12px;"></div>
+
+        <!-- Educação do paciente -->
+        <div id="patientEducation" style="margin-top:12px;"></div>
+      </div>
+
+      <!-- COLUNA DIREITA -->
+      <div>
+        <!-- Interações agrupadas -->
+        <div class="brutal-box card">
+          <h2>Interações e Alertas</h2>
+          <div id="grupoAlto" class="risk-group"></div>
+          <div id="grupoModerado" class="risk-group"></div>
+          <div id="grupoBaixo" class="risk-group"></div>
+
+          <p id="noInteractions" class="empty-state" style="display:none; margin-top:12px;">
+            Nenhuma interação clinicamente relevante encontrada ✔
+          </p>
+        </div>
+
+        <!-- O que observar -->
+        <div id="whatToObserve" style="margin-top:12px;"></div>
+
+        <!-- Detalhes clínicos por medicamento -->
+        <div id="clinicalDetails" style="margin-top:12px;"></div>
+      </div>
+
+    </div>
+
+    <!-- Botões -->
+    <div class="actions" style="margin-top:20px;">
+      <a href="resultado.html" class="btn-secondary">Voltar</a>
+      <a href="dashboard.html" class="btn-primary">Ver Dashboard</a>
+    </div>
+
+  </div>
+
+  <script src="../assets/js/resumo.js"></script>
+</body>
+</html>

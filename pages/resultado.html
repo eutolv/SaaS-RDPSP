@@ -24,12 +24,47 @@
       <p class="empty-state">Nenhuma interação detectada.</p>
     </div>
 
-    <!-- Botão voltar -->
-    <a href="adicionar.html" class="btn-secondary">Voltar</a>
+    <!-- Ações -->
+    <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 25px;">
+
+      <!-- Botão de resumo -->
+      <a href="resumo.html" class="btn-primary" id="btnResumo" style="display:none;">
+        Gerar Resumo para Atendente
+      </a>
+
+      <!-- Botão de voltar (vermelho) -->
+      <a href="adicionar.html" 
+         class="btn-secondary"
+         style="
+           background: #ff4d4d;
+           color: white;
+           border: 3px solid black;
+           text-align: center;
+           padding: 12px 16px;
+           font-weight: 700;
+           font-size: 1.1rem;
+         ">
+        Voltar
+      </a>
+
+    </div>
 
   </div>
 
   <!-- Script da análise -->
   <script src="../assets/js/analise.js"></script>
+
+  <script>
+    // Exibir o botão de resumo APENAS quando houver medicamentos
+    window.addEventListener('load', () => {
+      const meds = JSON.parse(localStorage.getItem('listaMed')) || [];
+      const btnResumo = document.getElementById('btnResumo');
+
+      if (meds.length > 0) {
+        btnResumo.style.display = 'block';
+      }
+    });
+  </script>
+
 </body>
 </html>

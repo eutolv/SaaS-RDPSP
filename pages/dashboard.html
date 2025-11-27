@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard | InterSafe RX</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Dashboard Analítico</h1>
+    <p class="subtitle">Visão geral das interações detectadas</p>
+
+    <!-- Cards rápidos -->
+    <div class="stats-grid">
+      <div class="stat-card brutal-box">
+        <h2>Total de Interações</h2>
+        <p id="statTotalInteracoes" class="stat-number">0</p>
+      </div>
+
+      <div class="stat-card brutal-box">
+        <h2>Risco Alto</h2>
+        <p id="statRiscoAlto" class="stat-number red">0</p>
+      </div>
+
+      <div class="stat-card brutal-box">
+        <h2>Medicamentos Avaliados</h2>
+        <p id="statMedicamentos" class="stat-number">0</p>
+      </div>
+    </div>
+
+    <!-- Gráficos em 2 colunas -->
+<div class="charts-grid">
+
+  <div class="chart-box brutal-box">
+    <h2>Top 10 Interações</h2>
+    <canvas id="chartTopInteracoes"></canvas>
+  </div>
+
+  <div class="chart-box brutal-box">
+    <h2>Distribuição por Classe Terapêutica</h2>
+    <canvas id="chartClasse"></canvas>
+  </div>
+
+</div>
+
+<!-- Gráfico isolado na horizontal -->
+<div class="chart-full brutal-box">
+  <h2>Uso por Loja (Demo)</h2>
+  <canvas id="chartLojas"></canvas>
+</div>
+
+
+  </div>
+
+  <script src="../assets/js/dashboard.js"></script>
+</body>
+
+</html>
