@@ -9,57 +9,55 @@
 
   <!-- CSS global -->
   <link rel="stylesheet" href="/assets/css/style.css">
-<link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
 
 </head>
 
-<body>
+<body class="vertical">
 
   <div class="container">
 
-    <!-- Títulos principais -->
-    <h1>InterSafe RX</h1>
-    <h2>Analisador de Interações Medicamentosas</h2>
+    <div> <!-- <<< div wrapper adicionada -->
+      <!-- Títulos principais -->
+      <h1>InterSafe RX</h1>
+      <h2>Analisador de Interações Medicamentosas</h2>
 
-    <p>Sessão única · Nenhum dado do paciente é armazenado</p>
+      <p>Sessão única · Nenhum dado do paciente é armazenado</p>
 
-    <!-- ============================= -->
-    <!-- Formulário de login (MVP fake) -->
-    <!-- ============================= -->
-    <form action="adicionar.html" method="GET">
+      <!-- Formulário de login (MVP fake) -->
+      <form action="adicionar.html" method="GET">
 
-      <!-- Matrícula -->
-      <div class="form-group">
-        <label for="matricula">Matrícula</label>
+        <!-- Matrícula -->
+        <div class="form-group">
+          <label for="matricula">Matrícula</label>
+          <input 
+            type="text" 
+            id="matricula" 
+            name="matricula" 
+            class="input-brutal"
+            required
+          >
+        </div>
 
-        <input 
-          type="text" 
-          id="matricula" 
-          name="matricula" 
-          class="input-brutal"
-          required
-        >
-      </div>
+        <!-- Senha -->
+        <div class="form-group">
+          <label for="senha">Senha</label>
+          <input 
+            type="password" 
+            id="senha" 
+            name="senha" 
+            class="input-brutal"
+            required
+          >
+        </div>
 
-      <!-- Senha -->
-      <div class="form-group">
-        <label for="senha">Senha</label>
+        <!-- Botão entrar -->
+        <button type="submit" class="btn-primary">
+          Entrar
+        </button>
 
-        <input 
-          type="password" 
-          id="senha" 
-          name="senha" 
-          class="input-brutal"
-          required
-        >
-      </div>
-
-      <!-- Botão entrar -->
-      <button type="submit" class="btn-primary">
-        Entrar
-      </button>
-
-    </form>
+      </form>
+    </div> <!-- <<< fim div wrapper -->
 
   </div>
 

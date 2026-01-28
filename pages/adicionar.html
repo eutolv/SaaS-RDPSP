@@ -6,105 +6,87 @@
 
   <!-- Estilos globais -->
   <link rel="stylesheet" href="/assets/css/style.css">
-<link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
 
 </head>
 
-<body>
+<body class="vertical">
 
   <div class="container">
 
-    <!-- Título e subtítulo -->
-    <h1>Adicionar Medicamentos</h1>
-    <p>Informe os medicamentos em uso pelo paciente</p>
+    <div> <!-- <<< div wrapper adicionada -->
+      <!-- Título e subtítulo -->
+      <h1>Adicionar Medicamentos</h1>
+      <p>Informe os medicamentos em uso pelo paciente</p>
 
-    <!-- ============================= -->
-    <!-- Campo de busca de medicamento -->
-    <!-- ============================= -->
-    <div class="form-group">
-      <label for="searchMed">Buscar medicamento</label>
+      <!-- Campo de busca de medicamento -->
+      <div class="form-group">
+        <label for="searchMed">Buscar medicamento</label>
+        <input 
+          type="text" 
+          id="searchMed"
+          class="input-brutal"
+          placeholder="Digite o nome do medicamento..."
+          autocomplete="off"
+        >
+        <div id="autocomplete-list" class="autocomplete-items brutal-box"></div>
+      </div>
 
-      <input 
-        type="text" 
-        id="searchMed"
-        class="input-brutal"
-        placeholder="Digite o nome do medicamento..."
-        autocomplete="off"
-      >
+      <!-- Seleção de dose -->
+      <div class="form-group">
+        <label for="dose">Dose</label>
+        <select 
+          id="dose" 
+          class="select-brutal disabled"
+          disabled
+        >
+          <option value="">Selecione um medicamento primeiro</option>
+        </select>
+      </div>
 
-      <!-- Lista de sugestões do autocomplete -->
-      <div id="autocomplete-list" class="autocomplete-items brutal-box"></div>
-    </div>
+      <!-- Frequência -->
+      <div class="form-group">
+        <label for="frequency">Frequência</label>
+        <select id="frequency" class="select-brutal">
+          <option value="1x/dia">1x ao dia</option>
+          <option value="2x/dia">2x ao dia</option>
+          <option value="3x/dia">3x ao dia</option>
+          <option value="4x/dia">4x ao dia</option>
+          <option value="SOS">SOS (se necessário)</option>
+          <option value="12/12h">12 em 12 horas</option>
+          <option value="8/8h">8 em 8 horas</option>
+        </select>
+      </div>
 
-    <!-- ============================= -->
-    <!-- Seleção de dose (carregado dinamicamente) -->
-    <!-- ============================= -->
-    <div class="form-group">
-      <label for="dose">Dose</label>
-
-      <select 
-        id="dose" 
-        class="select-brutal disabled"
+      <!-- Botão adicionar medicamento -->
+      <button 
+        id="addMedBtn" 
+        class="btn-brutal" 
         disabled
       >
-        <option value="">Selecione um medicamento primeiro</option>
-      </select>
-    </div>
+        Adicionar à lista
+      </button>
 
-    <!-- ============================= -->
-    <!-- Frequência -->
-    <!-- ============================= -->
-    <div class="form-group">
-      <label for="frequency">Frequência</label>
+      <!-- Lista de medicamentos adicionados -->
+      <div id="medList" class="med-list brutal-box">
+        <p class="empty-state">Nenhum medicamento adicionado ainda</p>
+      </div>
 
-      <select id="frequency" class="select-brutal">
-        <option value="1x/dia">1x ao dia</option>
-        <option value="2x/dia">2x ao dia</option>
-        <option value="3x/dia">3x ao dia</option>
-        <option value="4x/dia">4x ao dia</option>
-        <option value="SOS">SOS (se necessário)</option>
-        <option value="12/12h">12 em 12 horas</option>
-        <option value="8/8h">8 em 8 horas</option>
-      </select>
-    </div>
-
-    <!-- ============================= -->
-    <!-- Botão adicionar medicamento -->
-    <!-- ============================= -->
-    <button 
-  id="addMedBtn" 
-  class="btn-brutal" 
-  disabled
->
-  Adicionar à lista
-</button>
-
-
-    <!-- ============================= -->
-    <!-- Lista de medicamentos adicionados -->
-    <!-- ============================= -->
-    <div id="medList" class="med-list brutal-box">
-      <p class="empty-state">Nenhum medicamento adicionado ainda</p>
-    </div>
-
-    <!-- ============================= -->
-    <!-- Botão analisar (só aparece quando há itens) -->
-    <!-- ============================= -->
-    <a 
-      href="resultado.html" 
-      id="analyzeBtn" 
-      class="btn-primary" 
-      style="display: none;"
-    >
-      Analisar Interações
-    </a>
+      <!-- Botão analisar (só aparece quando há itens) -->
+      <a 
+        href="resultado.html" 
+        id="analyzeBtn" 
+        class="btn-primary" 
+        style="display: none;"
+      >
+        Analisar Interações
+      </a>
+    </div> <!-- <<< fim div wrapper -->
 
   </div>
 
   <!-- Scripts -->
   <script src="../assets/js/medicamentos.js"></script>
-
-
 
 </body>
 </html>
